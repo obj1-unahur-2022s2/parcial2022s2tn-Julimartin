@@ -1,2 +1,35 @@
 import parcelas.*
+import plantas.*
 
+describe "Test de parcelas" {
+	
+	const parcela = new Parcela(ancho= 20, largo= 1, horasDeSol= 8)
+	const soja1 = new Soja(anioDeObtencion = 2009,altura = 1)
+	const soja2 = new Soja(anioDeObtencion = 2009,altura = 1)
+	const soja3 = new Soja(anioDeObtencion = 2009,altura = 1)
+	const soja4 = new Soja(anioDeObtencion = 2009,altura = 1)
+	const soja5 = new Soja(anioDeObtencion = 2009,altura = 1)
+	
+	method initialize() {
+		parcela.plantarUnaPlanta(soja1)
+		parcela.plantarUnaPlanta(soja2)
+		parcela.plantarUnaPlanta(soja3)
+		parcela.plantarUnaPlanta(soja4)
+	}
+	
+	test "Parcela - Tiene 20 m2" {
+		assert.equals(20, parcela.superficie())
+	}
+	
+	test "Parcela - Tolera hasta 4 plantas como máx" {
+		assert.equals(4, parcela.cantidadMaxima())
+	}
+	
+	test "Parcela - No tiene complicaciones con 4 sojas que toleran 9 hs de sol" {
+		assert.notThat(parcela.tieneComplicaciones())
+	}
+	
+	test "Parcela - No se puede plantar una 5ta planta" {
+		assert.throwsException({parcela.plantarUnaPlanta(soja5)})
+	}
+}
