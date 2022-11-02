@@ -24,12 +24,12 @@ class Parcela {
 	method cantidadDePlantasBienAsociadas() = plantas.count({p=>self.seAsociaBienA(p)})
 }
 
-class ParcelasEcologicas inherits Parcela {
+class ParcelaEcologica inherits Parcela {
 	
 	override method seAsociaBienA(unaPlanta) = !self.tieneComplicaciones() && self.esParcelaIdeal(unaPlanta)
 }
 
-class ParcelasIndustriales inherits Parcela {
+class ParcelaIndustrial inherits Parcela {
 	
 	override method seAsociaBienA(unaPlanta) = self.cantidadMaxima() == 2 && unaPlanta.esFuerte()
 }

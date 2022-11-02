@@ -2,7 +2,7 @@ import parcelas.*
 
 class Planta {
 	const anioDeObtencion
-	const altura
+	const property altura
 	
 	method horasDeSol()
 	method esFuerte() = self.horasDeSol() > 10

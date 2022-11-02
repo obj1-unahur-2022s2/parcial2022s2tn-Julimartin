@@ -3,33 +3,58 @@ import plantas.*
 
 describe "Test de parcelas" {
 	
-	const parcela = new Parcela(ancho= 20, largo= 1, horasDeSol= 8)
+	const parcelaEco = new ParcelaEcologica(ancho= 20, largo= 1, horasDeSol= 8)
+	const parcelaInd = new ParcelaIndustrial(ancho= 20, largo= 1, horasDeSol= 8)
 	const soja1 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja2 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja3 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja4 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja5 = new Soja(anioDeObtencion = 2009,altura = 1)
+	const menta1 = new Menta(anioDeObtencion = 2004,altura = 1)
+	const menta2 = new Menta(anioDeObtencion = 2004,altura = 0.3)
+	const soja = new Soja(anioDeObtencion = 2009,altura = 0.6)
+	const quinoa1 = new Quinoa(anioDeObtencion = 2010,altura = 1, horasDeSol=12)
+	const quinoa2 = new Quinoa(anioDeObtencion = 2001,altura = 1.6, horasDeSol=9)
+	const sojaTrans = new SojaTransgenica(anioDeObtencion = 2001,altura = 1)
+	const hierbaBuena = new HierbaBuena(anioDeObtencion = 2001,altura = 1)
 	
 	method initialize() {
-		parcela.plantarUnaPlanta(soja1)
-		parcela.plantarUnaPlanta(soja2)
-		parcela.plantarUnaPlanta(soja3)
-		parcela.plantarUnaPlanta(soja4)
+		parcelaEco.plantarUnaPlanta(soja1)
+		parcelaEco.plantarUnaPlanta(soja2)
+		parcelaEco.plantarUnaPlanta(soja3)
+		parcelaEco.plantarUnaPlanta(soja4)
+		parcelaInd.plantarUnaPlanta(quinoa2)
 	}
 	
-	test "Parcela - Tiene 20 m2" {
-		assert.equals(20, parcela.superficie())
+	test "ParcelaEco - Tiene 20 m2" {
+		assert.equals(20, parcelaEco.superficie())
 	}
 	
-	test "Parcela - Tolera hasta 4 plantas como máx" {
-		assert.equals(4, parcela.cantidadMaxima())
+	test "ParcelaEco - Tolera hasta 4 plantas como máx" {
+		assert.equals(4, parcelaEco.cantidadMaxima())
 	}
 	
-	test "Parcela - No tiene complicaciones con 4 sojas que toleran 9 hs de sol" {
-		assert.notThat(parcela.tieneComplicaciones())
+	test "ParcelaEco - No tiene complicaciones con 4 sojas que toleran 9 hs de sol" {
+		assert.notThat(parcelaEco.tieneComplicaciones())
 	}
 	
-	test "Parcela - No se puede plantar una 5ta planta" {
-		assert.throwsException({parcela.plantarUnaPlanta(soja5)})
+	test "ParcelaEco - No se puede plantar una 5ta planta" {
+		assert.throwsException({parcelaEco.plantarUnaPlanta(soja5)})
+	}
+	
+	test "Menta1 le resulta ideal la parcelaEco" {
+		assert.that(parcelaEco.esParcelaIdeal(menta1))
+	}
+	
+	test "Menta1 le resulta ideal la parcelaEco" {
+		assert.that(parcelaEco.esParcelaIdeal(menta1))
+	}
+	
+	test "quinoa1 no le resulta ideal la parcelaInd" {
+		assert.notThat(parcelaInd.esParcelaIdeal(quinoa1))
+	}
+	
+	test "quinoa1 no se asocia bien a parcelaInd" {
+		assert.notThat(parcelaInd.seAsociaBienA(quinoa1))
 	}
 }

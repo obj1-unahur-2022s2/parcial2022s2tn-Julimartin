@@ -3,6 +3,7 @@ import parcelas.*
 object inta {
 	const property listaDeParcelas = #{}
 	
+	method agregarParcela(unaParela) = listaDeParcelas.add(unaParela)
 	method promedioDePlantas() = listaDeParcelas.sum({p=>p.cantidadDePlantas()})/ self.cantidadDeParcelas()
 	method cantidadDeParcelas() = listaDeParcelas.size()
 	method masAutosustentable() = self.parcelasConMasDe(4).max({p=>p.cantidadDePlantasBienAsociadas()})

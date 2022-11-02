@@ -1,4 +1,6 @@
 import plantas.*
+import parcelas.*
+
 describe "Test de Plantas"  {
 	
 	const menta1 = new Menta(anioDeObtencion = 2004,altura = 1)
@@ -8,9 +10,9 @@ describe "Test de Plantas"  {
 	const quinoa2 = new Quinoa(anioDeObtencion = 2001,altura = 1, horasDeSol=9)
 	const sojaTrans = new SojaTransgenica(anioDeObtencion = 2001,altura = 1)
 	const hierbaBuena = new HierbaBuena(anioDeObtencion = 2001,altura = 1)
+	const parcelaEco = new ParcelaEcologica(ancho= 20, largo= 1, horasDeSol= 8)
+	const parcelaInd = new ParcelaIndustrial(ancho= 20, largo= 1, horasDeSol= 8)
 	
-	method initialize() {
-	}
 	
 	test "Menta1 - Da nuevas semillas" {
 		assert.that(menta1.daNuevasSemillas())
@@ -47,6 +49,7 @@ describe "Test de Plantas"  {
 	test "HierbaBuena - Mide 1 m de altura y ocupa " {
 		assert.equals(6,hierbaBuena.espacio())
 	}
+
 }
 
 
