@@ -1,9 +1,12 @@
+/*
+ * El método ```agregarParcela(unaParela)``` no es un método de consulta es de indicación. No debe retornar nada y el test del inta te lo esta adviertiendo
+ */
 import parcelas.*
 
 object inta {
 	const property listaDeParcelas = #{}
 	
-	method agregarParcela(unaParela) = listaDeParcelas.add(unaParela)
+	method agregarParcela(unaParela) { listaDeParcelas.add(unaParela) }
 	method promedioDePlantas() = listaDeParcelas.sum({p=>p.cantidadDePlantas()})/ self.cantidadDeParcelas()
 	method cantidadDeParcelas() = listaDeParcelas.size()
 	method masAutosustentable() = self.parcelasConMasDe(4).max({p=>p.cantidadDePlantasBienAsociadas()})
