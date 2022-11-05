@@ -1,3 +1,6 @@
+/*
+ * No esta bueno dejar variables que nunca es usan en el código
+ */
 import parcelas.*
 import plantas.*
 import inta.*
@@ -9,16 +12,17 @@ describe "Test estadisticas del Inta" {
 	const soja2 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja3 = new Soja(anioDeObtencion = 2009,altura = 1)
 	const soja4 = new Soja(anioDeObtencion = 2009,altura = 1)
-	const soja5 = new Soja(anioDeObtencion = 2009,altura = 1)
-	const menta1 = new Menta(anioDeObtencion = 2004,altura = 1)
-	const menta2 = new Menta(anioDeObtencion = 2004,altura = 0.3)
-	const soja = new Soja(anioDeObtencion = 2009,altura = 0.6)
-	const quinoa1 = new Quinoa(anioDeObtencion = 2010,altura = 1, horasDeSol=12)
+	//const soja5 = new Soja(anioDeObtencion = 2009,altura = 1)
+	//const menta1 = new Menta(anioDeObtencion = 2004,altura = 1)
+	//const menta2 = new Menta(anioDeObtencion = 2004,altura = 0.3)
+	//const soja = new Soja(anioDeObtencion = 2009,altura = 0.6)
+	//const quinoa1 = new Quinoa(anioDeObtencion = 2010,altura = 1, horasDeSol=12)
 	const quinoa2 = new Quinoa(anioDeObtencion = 2001,altura = 1.6, horasDeSol=9)
-	const sojaTrans = new SojaTransgenica(anioDeObtencion = 2001,altura = 1)
-	const hierbaBuena = new HierbaBuena(anioDeObtencion = 2001,altura = 1)
+	//const sojaTrans = new SojaTransgenica(anioDeObtencion = 2001,altura = 1)
+	//const hierbaBuena = new HierbaBuena(anioDeObtencion = 2001,altura = 1)
 	
 	method initialize() {
+		
 		parcelaEco.plantarUnaPlanta(soja1)
 		parcelaEco.plantarUnaPlanta(soja2)
 		parcelaEco.plantarUnaPlanta(soja3)
@@ -26,7 +30,7 @@ describe "Test estadisticas del Inta" {
 		parcelaInd.plantarUnaPlanta(quinoa2)
 		inta.agregarParcela(parcelaEco)
 		inta.agregarParcela(parcelaInd)
-		}
+	}
 		
 	test "el promedio de plantas es de 2.5 por parcela" {
 		assert.equals(2.5, inta.promedioDePlantas())

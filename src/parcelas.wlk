@@ -1,9 +1,14 @@
+/*
+ * horasDeSol es property para que puedas tener el getter que usas en plantas
+ * ```plantarUnaPlanta(unaPlanta)``` No es un método de consulta es de inidciación. Lo debe tener el retunr o el ()=
+ * Recorda que cuando lanzas un excepción no continua la ejecución del método. El plantarUnaPlanta no era necesario tener el else. 
+ */
 import plantas.*
 
 class Parcela {
 	const ancho
 	const largo
-	const horasDeSol
+	const property horasDeSol
 	const property plantas = #{}
 	
 	method superficie() = ancho * largo
@@ -12,11 +17,12 @@ class Parcela {
 		else self.superficie() / 3 + largo
 		
 	method tieneComplicaciones() = plantas.any({p=> p.horasDeSol() < horasDeSol})
-	method plantarUnaPlanta(unaPlanta) = 
+	method plantarUnaPlanta(unaPlanta) {
 		if (self.cantidadDePlantas() + 1 > self.cantidadMaxima() || 
-			(unaPlanta.horasDeSol() - horasDeSol).abs() >= 2) 
+			(unaPlanta.horasDeSol() - horasDeSol).abs() >= 2)
 			self.error("No se puede plantar")
-	else plantas.add(unaPlanta)
+		plantas.add(unaPlanta)
+	}
 	method cantidadDePlantas() = plantas.size()
 	method esParcelaIdeal(unaPlanta) = unaPlanta.esParcelaIdeal(self)
 	method seAsociaBienA(unaPlanta)

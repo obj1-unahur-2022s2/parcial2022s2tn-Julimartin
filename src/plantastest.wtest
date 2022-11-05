@@ -1,3 +1,6 @@
+/*
+ * Quedaron variables de quino1 y parcelas que nunca las usaste y estaria bueno que esten los test con esas plantas y parcelas
+ */
 import plantas.*
 import parcelas.*
 
@@ -6,12 +9,12 @@ describe "Test de Plantas"  {
 	const menta1 = new Menta(anioDeObtencion = 2004,altura = 1)
 	const menta2 = new Menta(anioDeObtencion = 2004,altura = 0.3)
 	const soja = new Soja(anioDeObtencion = 2009,altura = 0.6)
-	const quinoa1 = new Quinoa(anioDeObtencion = 2010,altura = 1, horasDeSol=12)
-	const quinoa2 = new Quinoa(anioDeObtencion = 2001,altura = 1, horasDeSol=9)
+	//const quinoa1 = new Quinoa(anioDeObtencion = 2010,altura = 1, horasDeSol=12)
+	//const quinoa2 = new Quinoa(anioDeObtencion = 2001,altura = 1, horasDeSol=9)
 	const sojaTrans = new SojaTransgenica(anioDeObtencion = 2001,altura = 1)
 	const hierbaBuena = new HierbaBuena(anioDeObtencion = 2001,altura = 1)
-	const parcelaEco = new ParcelaEcologica(ancho= 20, largo= 1, horasDeSol= 8)
-	const parcelaInd = new ParcelaIndustrial(ancho= 20, largo= 1, horasDeSol= 8)
+	//const parcelaEco = new ParcelaEcologica(ancho= 20, largo= 1, horasDeSol= 8)
+	//const parcelaInd = new ParcelaIndustrial(ancho= 20, largo= 1, horasDeSol= 8)
 	
 	
 	test "Menta1 - Da nuevas semillas" {

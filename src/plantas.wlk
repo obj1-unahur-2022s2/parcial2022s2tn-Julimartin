@@ -1,7 +1,12 @@
+/*
+ * En el método daNuevasSemillas() de Soja te faltaron los paréntesispara agrupar correctamente las condiciones.
+* La condicion de ```bool and bool or bool``` es distinto que ```bool and (bool or bool)``` está última es la correcta
+* En el método ```esParcelaIdeal(unaParcela)``` le envías el mensaje unaParcela.horasDeSol() y la parcela no tiene el getter de ese atributo 
+*/
 import parcelas.*
 
 class Planta {
-	const anioDeObtencion
+	const property anioDeObtencion
 	const property altura
 	
 	method horasDeSol()
@@ -27,7 +32,7 @@ class Soja inherits Planta{
 		else if (altura.between(0.5,1)) 7
 		else 9
 	
-	override method daNuevasSemillas() = super() || anioDeObtencion > 2007 && altura > 1
+	override method daNuevasSemillas() = super() || (anioDeObtencion > 2007 && altura > 1)
 	override method espacio() = altura / 2
 	override method esParcelaIdeal(unaParcela) = self.horasDeSol() == unaParcela.horasDeSol()
 }
